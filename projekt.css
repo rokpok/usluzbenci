@@ -1,0 +1,32 @@
+body {
+    background-color: lightblue;
+}
+button.hour-button {
+	color:red;
+    padding: 15px 32px;
+    margin-bottom: 	10px;
+}
+div.pie-chart{
+	height: 100px;
+	background-color: red;
+}
+div.graf {
+	height: 100px;
+	background-color: blue;
+}
+.wrapper {
+	height: 35px;
+	background-color: white; 
+}
+
+/* dejansko uporabna značka zgoraj je zajebancija */
+.gui {
+	border: 3px solid green;
+	padding-top: 20px;
+	padding-bottom: : 30px;
+	margin-bottom: 30px;
+}
+div.dropdown {
+	/*ga floatam ker ne vem kako postaviš dropdown list na desno */
+	float: right;
+}
