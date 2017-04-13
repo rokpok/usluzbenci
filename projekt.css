@@ -7,7 +7,7 @@ button.hour-button {
     margin-bottom: 	10px;
 }
 div.pie-chart{
-	height: 100px;
+  width: 300px;
 	background-color: red;
 }
 div.graf {
@@ -16,7 +16,7 @@ div.graf {
 }
 .wrapper {
 	height: 35px;
-	background-color: white; 
+	background-color: white;
 }
 
 /* dejansko uporabna značka zgoraj je zajebancija */
@@ -28,5 +28,5 @@ div.graf {
 }
 div.dropdown {
 	/*ga floatam ker ne vem kako postaviš dropdown list na desno */
-	float: right;
+	/*float: right;*/
 }

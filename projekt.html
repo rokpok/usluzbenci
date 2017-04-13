@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="usluzbenciApp">
 <head>
 	<meta charset="utf-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -12,8 +12,13 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/master-controller.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+  <script src="js/angular-chart.min.js"></script>
 </head>
-<body>
+<body ng-controller="MasterController as vm">
 	<!-- navbar, copi pastan, ne vem zakaj je tok divov -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -41,10 +46,10 @@
 						<!-- empty, za spacing -->
 					</div>
 					<div class="col-lg-2">
-						<button class="btn btn-primary btn-block btn-lg hour-button" type="button">Checkin</button>
+						<button ng-click="vm.checkin()" class="btn btn-primary btn-block btn-lg hour-button" type="button">Checkin</button>
 					</div>
 					<div class="col-lg-2">
-						<button class="btn btn-primary btn-block btn-lg hour-button" type="button">Malica</button>
+						<button ng-disabled="vm.status === 'ni v službi'" class="btn btn-primary btn-block btn-lg hour-button" type="button">Malica</button>
 					</div>
 					<div class="col-lg-2">
 						<button class="btn btn-primary btn-block btn-lg hour-button" type="button">Work leave</button>
@@ -58,6 +63,7 @@
 				</div>
 			</div>
 		</div>
+    <div>{{vm.status}}</div>
 		<div class="panel-footer">
 			<!-- progress bar, rabim drugačen sistem za končni produkt, margin/padding top -->
 			<div class="container-fluid">
@@ -99,12 +105,13 @@
 	</div>
 
 	<!-- div za pie charte -->
-	<div class="pie-chart"></div>
+	<div class="pie-chart">
+    <canvas id="bar" class="chart chart-bar" chart-options="vm.options" chart-data="vm.data" chart-labels="vm.labels" chart-series="vm.series">
+    </canvas>
+  </div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-	</script> <!-- Include all compiled plugins (below), or include individual files as needed -->
-	 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> <!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js">
 	</script>
 </body>
